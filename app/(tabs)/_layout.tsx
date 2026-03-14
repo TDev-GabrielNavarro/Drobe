@@ -1,11 +1,10 @@
-import React from 'react';
+import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
-import { Link, Tabs } from 'expo-router';
-import { Platform, Pressable } from 'react-native';
+import React from 'react';
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { useColorScheme } from '@/components/useColorScheme';
+import Colors from '@/constants/Colors';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -19,9 +18,9 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
       }}>
       <Tabs.Screen
-        name="index"
+        name="wardrobe"
         options={{
-          title: 'Tab One',
+          title: 'Wardrobe',
           tabBarIcon: ({ color }) => (
             <SymbolView
               name={{
@@ -32,27 +31,13 @@ export default function TabLayout() {
               tintColor={color}
               size={28}
             />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable style={{ marginRight: 15 }}>
-                {({ pressed }) => (
-                  <SymbolView
-                    name={{ ios: 'info.circle', android: 'info', web: 'info' }}
-                    size={25}
-                    tintColor={Colors[colorScheme].text}
-                    style={{ opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="add"
         options={{
-          title: 'Tab Two',
+          title: '+',
           tabBarIcon: ({ color }) => (
             <SymbolView
               name={{
@@ -66,6 +51,23 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+      name="outfits"
+      options={{
+        title: 'Outfits',
+        tabBarIcon: ({ color }) => (
+          <SymbolView
+            name={{
+              ios: 'chevron.left.forwardslash.chevron.right',
+              android: 'code',
+              web: 'code',
+            }}
+            tintColor={color}
+            size={28}
+          />
+        ),
+      }}
+    />
     </Tabs>
   );
 }
