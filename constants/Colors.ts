@@ -8,6 +8,7 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#B8977E',
     tabIconSelected: tintColorLight,
+    chipBackground: '#EDE8E0',
   },
   dark: {
     text: '#F5EFE8',
@@ -15,5 +16,6 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#8A7060',
     tabIconSelected: tintColorDark,
+    chipBackground: '#2C1F18',
   },
 };

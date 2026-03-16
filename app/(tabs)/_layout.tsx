@@ -22,6 +22,7 @@ export default function TabLayout() {
          },
         headerShown: useClientOnlyValue(false, true),
         tabBarShowLabel: false,
+        headerShown: true,
       }}>
       <Tabs.Screen
         name="wardrobe"
