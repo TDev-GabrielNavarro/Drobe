@@ -1,3 +1,4 @@
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import React from 'react';
@@ -20,20 +21,17 @@ export default function TabLayout() {
           shadowOpacity: 0,
          },
         headerShown: useClientOnlyValue(false, true),
+        tabBarShowLabel: false,
       }}>
       <Tabs.Screen
         name="wardrobe"
         options={{
-          title: 'Wardrobe',
+          title: 'Drobe',
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
+            <MaterialCommunityIcons 
+            name="wardrobe-outline" 
+            size={28} 
+            color={color}
             />
           ),
         }}
