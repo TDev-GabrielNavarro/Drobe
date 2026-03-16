@@ -3,7 +3,6 @@ import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import React from 'react';
 
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
@@ -20,9 +19,8 @@ export default function TabLayout() {
           elevation: 0,
           shadowOpacity: 0,
          },
-        headerShown: useClientOnlyValue(false, true),
         tabBarShowLabel: false,
-        headerShown: true,
+        headerShown: false,
       }}>
       <Tabs.Screen
         name="wardrobe"

@@ -5,6 +5,7 @@ import { Category } from "@/types";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { Dimensions, FlatList, ImageBackground, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 const numColumns = 2;
@@ -20,6 +21,8 @@ const filteredClothingItems = sampleClothingItems.filter(item => selectedCategor
 const colorScheme = useColorScheme();
 const colors = Colors[colorScheme ?? 'light'];
 
+const insets = useSafeAreaInsets();
+
   return (
     <FlatList
       data={filteredClothingItems}
@@ -28,35 +31,38 @@ const colors = Colors[colorScheme ?? 'light'];
       style={{ backgroundColor: colors.background }}
       contentContainerStyle={{ paddingHorizontal: 10 }}
       ListHeaderComponent={
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginRight: -10 }}>
-          {categories.map((category) => (
-            <TouchableOpacity
-              key={category}
-              onPress={() => setSelectedCategory(category)}
-              style={{
-                padding: 10,
-                margin: 5,
-                marginBottom: 20,
-                borderRadius: 20,
-                backgroundColor: selectedCategory === category ? colors.tint : colors.chipBackground,
-              }}
-              >
-                <Text style={{ color: selectedCategory === category ? colors.background : colors.tint, fontWeight: 'bold', marginHorizontal: 8, marginVertical: 2 }}>
-                  {category}
-                </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
+        <View>
+          <Text style={{ color: colors.tabIconSelected, fontSize: 28, fontWeight: 'bold', margin: 10, paddingTop: insets.top + 10 }}>
+            Drobe
+          </Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginRight: -10 }}>
+            {categories.map((category) => (
+              <TouchableOpacity
+                key={category}
+                onPress={() => setSelectedCategory(category)}
+                style={{
+                  padding: 10,
+                  margin: 5,
+                  marginBottom: 20,
+                  borderRadius: 20,
+                  backgroundColor: selectedCategory === category ? colors.tint : colors.chipBackground,
+                }}
+                >
+                  <Text style={{ color: selectedCategory === category ? colors.background : colors.tint, fontWeight: 'bold', marginHorizontal: 8, marginVertical: 2 }}>
+                    {category}
+                  </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
       }
       renderItem={({ item }) => (
-        <View style={{ flex: 1, margin: 5, marginVertical: 10, overflow: 'hidden' }}>
+        <View style={{ flex: 1, margin: 5, marginVertical: 10, borderRadius: 15, overflow: 'hidden' }}>
           <ImageBackground
             source={{ uri: item.imageUri }}
-            style={{ width: itemWidth, height: 200 }}
-            borderRadius={10}
-
+            style={{ flex: 1, height: 200 }}
           >
-            <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 1)']} style={{ flex: 1, justifyContent: 'flex-end', padding: 5, position: 'absolute', bottom: 0, left: 0, right: 0, borderRadius: 10 }}>
+            <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 1)']} style={{ flex: 1, justifyContent: 'flex-end', padding: 5, position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}>
               <Text style={{ color: colors.text, fontWeight: 'bold', textAlign: 'center', fontSize: 15 }}>
                 {item.name}
               </Text>
