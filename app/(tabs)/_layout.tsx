@@ -1,8 +1,9 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import React from 'react';
 
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
@@ -19,21 +20,18 @@ export default function TabLayout() {
           elevation: 0,
           shadowOpacity: 0,
          },
-        headerShown: useClientOnlyValue(false, true),
+        tabBarShowLabel: false,
+        headerShown: false,
       }}>
       <Tabs.Screen
         name="wardrobe"
         options={{
-          title: 'Wardrobe',
+          title: 'Drobe',
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
+            <MaterialCommunityIcons 
+            name="wardrobe-outline" 
+            size={28} 
+            color={color}
             />
           ),
         }}
@@ -41,16 +39,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="add"
         options={{
-          title: '+',
+          title: 'Add',
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
+            <Ionicons 
+            name="add-circle" 
+            size={30} 
+            color={color} 
             />
           ),
         }}
