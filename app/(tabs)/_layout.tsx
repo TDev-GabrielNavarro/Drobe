@@ -1,3 +1,4 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
@@ -38,16 +39,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="add"
         options={{
-          title: '+',
+          title: 'Add',
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
+            <Ionicons 
+            name="add-circle" 
+            size={30} 
+            color={color} 
             />
           ),
         }}
