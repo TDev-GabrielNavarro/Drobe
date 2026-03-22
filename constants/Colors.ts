@@ -9,6 +9,7 @@ export default {
     tabIconDefault: '#B8977E',
     tabIconSelected: tintColorLight,
     chipBackground: '#EDE8E0',
+    placeholderTextColor: '#8A7060',
   },
   dark: {
     text: '#F5EFE8',
@@ -17,5 +18,6 @@ export default {
     tabIconDefault: '#8A7060',
     tabIconSelected: tintColorDark,
     chipBackground: '#2C1F18',
+    placeholderTextColor: '#B8977E',
   },
 };

@@ -4,6 +4,7 @@ import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
 import React from 'react';
 
+import { View } from '@/components/Themed';
 import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
@@ -30,7 +31,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons 
             name="wardrobe-outline" 
-            size={28} 
+            size={30} 
             color={color}
             />
           ),
@@ -41,11 +42,21 @@ export default function TabLayout() {
         options={{
           title: 'Add',
           tabBarIcon: ({ color }) => (
-            <Ionicons 
-            name="add-circle" 
-            size={30} 
-            color={color} 
-            />
+            <View style={{
+              width: 75,
+              height: 75,
+              borderRadius: 50,
+              backgroundColor: Colors[colorScheme].tint,
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: 20,
+            }}>
+              <Ionicons 
+              name="add" 
+              size={40} 
+              color={Colors[colorScheme].background} 
+              />
+            </View>
           ),
         }}
       />
@@ -61,7 +72,7 @@ export default function TabLayout() {
               web: 'code',
             }}
             tintColor={color}
-            size={28}
+            size={30}
           />
         ),
       }}

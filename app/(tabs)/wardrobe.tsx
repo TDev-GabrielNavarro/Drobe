@@ -63,11 +63,10 @@ const insets = useSafeAreaInsets();
             style={{ flex: 1, height: 200 }}
           >
             <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 1)']} style={{ flex: 1, justifyContent: 'flex-end', padding: 5, position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}>
-              ///need to change text color based on image brightness in the future, for now just defaulting to white
-              <Text style={{ color: colors.text, fontWeight: 'bold', textAlign: 'center', fontSize: 15 }}>
+              <Text style={{ color: colors.tabIconDefault, fontWeight: 'bold', textAlign: 'center', fontSize: 15 }}>
                 {item.name}
               </Text>
-              <Text style={{ color: colors.tabIconDefault, textAlign: 'center', marginBottom: 10, fontSize: 12 }}>
+              <Text style={{ color: colors.tabIconSelected, textAlign: 'center', marginBottom: 10, fontSize: 12 }}>
                 {item.category}
               </Text>
             </LinearGradient>
